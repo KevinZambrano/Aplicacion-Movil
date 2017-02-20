@@ -1,0 +1,53 @@
+<div class="table-responsive col-md-6">
+	<h4>Unete a nosotros</h4>
+	<br>
+	<table class="table table-hover">
+		<tr>
+			<td>Rut: </td>
+			<td><input type="number" class="form-control" ng-model="persona.rut"></td>
+			<td><input type="number" class="form-control" ng-model="persona.digitoverificador"></td>
+		</tr>
+		<tr>
+			<td>Nombre: </td>
+			<td><input type="text" class="form-control" ng-model="persona.nombre"></td>
+		</tr>
+		<tr>
+			<td>Nombre de usuario: </td>
+			<td><input type="text" class="form-control" ng-model="usuario.idusuario"></td>
+		</tr>
+		<tr>
+			<td>Apellido Paterno: </td>
+			<td><input type="text" class="form-control" ng-model="persona.apellidopaterno"></td>
+		</tr>
+		<tr>
+			<td>Apellido Materno: </td>
+			<td><input type="text" class="form-control" ng-model="persona.apellidomaterno"></td>
+		</tr>
+		<tr>
+			<td>Pais: </td>
+			<td><select class="form-control" ng-model="persona.pais">
+				<option value="Chile">Chile</option>
+				<option value="Estados Unidos">E.E.U.U.</option>
+			</select></td>
+		</tr>
+		<tr>
+			<td>Genero: </td>
+			<td><select class="form-control" ng-model="persona.genero">
+				<option value="Masculino">Masculino</option>
+				<option value="Femenino">Femenino</option>
+			</select></td>
+		</tr>
+		<tr>
+			<td>Password: </td>
+			<td><input type="password" class="form-control" ng-model="usuario.password"></td>
+		</tr>
+		<tr>
+			<td>Correo: </td>
+			<td><input type="email" class="form-control" ng-model="usuario.correo"></td>
+		</tr>
+		<tr>
+		
+			<td><input type="button" value="Registrar" class="btn btn-success" ng-click="registrar()"></td>
+		</tr>
+	</table>
+</div>
