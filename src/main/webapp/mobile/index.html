@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="ISO-8859-1">
+<title>User</title>
+<script type="text/javascript" src="../angular/angular.min.js"></script>
+<script type="text/javascript" src="../angular/angular-route.min.js"></script>
+<script type="text/javascript" src="../angular/angular-resource.min.js"></script>
+<!-- LINKS -->
+<link rel="stylesheet" href="../css/bootstrap.css">
+</head>
+<body>
+	<div class="col-md-12 col-md-offset-5">
+	<a href="/SpringAngular/LogoutServlet">Cerrar Sesion</a>
+	</div>
+
+	<div class="col-md-6">
+	<h2>Bienvenido </h2>
+	<br>
+		<ul class="nav nav-tabs">
+			<li><a href="index.html#/">Inicio</a></li>
+			<li><a href="index.html#/ingresos">Ingresos</a></li>
+			<li><a href="index.html#/agregar/ingresos">Agregar Ingreso</a></li>
+		</ul>
+	</div>
+	<div ng-view="" class="col-md-12"></div>
+	<script type="text/javascript">
+       		var CONSTANTS = {
+       				
+       			path: "/SpringAngular"
+       		};
+        </script>
+	<script type="text/javascript" src="../js/Aplicacion.js"></script>
+	<script type="text/javascript" src="../js/InicioController.js"></script>
+	<script type="text/javascript" src="../js/IngresosController.js"></script>
+	<script type="text/javascript" src="../js/AgregarIngresosController.js"></script>
+	<script type="text/javascript" src="../js/RegistrarController.js"></script>
+</body>
+</html>

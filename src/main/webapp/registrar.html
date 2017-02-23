@@ -4,46 +4,46 @@
 	<table class="table table-hover">
 		<tr>
 			<td>Rut: </td>
-			<td><input type="number" class="form-control" ng-model="persona.rut"></td>
-			<td><input type="number" class="form-control" ng-model="persona.digitoverificador"></td>
+			<td><input type="number" id="rut" class="form-control" ng-model="persona.rut" ng-required="rutre"></td>
+			<td><input type="number" id="digitoverificador" class="form-control" ng-model="persona.digitoverificador"></td>
 		</tr>
 		<tr>
 			<td>Nombre: </td>
-			<td><input type="text" class="form-control" ng-model="persona.nombre"></td>
+			<td><input type="text" id="nombre" class="form-control" ng-model="persona.nombre"></td>
 		</tr>
 		<tr>
 			<td>Nombre de usuario: </td>
-			<td><input type="text" class="form-control" ng-model="usuario.idusuario"></td>
+			<td><input type="text" id="nombreusuario" class="form-control" required="required" ng-model="usuario.idusuario"></td>
 		</tr>
 		<tr>
 			<td>Apellido Paterno: </td>
-			<td><input type="text" class="form-control" ng-model="persona.apellidopaterno"></td>
+			<td><input type="text" id="apellidopaterno" class="form-control" ng-model="persona.apellidopaterno"></td>
 		</tr>
 		<tr>
 			<td>Apellido Materno: </td>
-			<td><input type="text" class="form-control" ng-model="persona.apellidomaterno"></td>
+			<td><input type="text" id="apellidomaterno" class="form-control" ng-model="persona.apellidomaterno"></td>
 		</tr>
 		<tr>
 			<td>Pais: </td>
-			<td><select class="form-control" ng-model="persona.pais">
+			<td><select id="pais" class="form-control" ng-model="persona.pais">
 				<option value="Chile">Chile</option>
 				<option value="Estados Unidos">E.E.U.U.</option>
 			</select></td>
 		</tr>
 		<tr>
 			<td>Genero: </td>
-			<td><select class="form-control" ng-model="persona.genero">
+			<td><select id="genero" class="form-control" ng-model="persona.genero">
 				<option value="Masculino">Masculino</option>
 				<option value="Femenino">Femenino</option>
 			</select></td>
 		</tr>
 		<tr>
 			<td>Password: </td>
-			<td><input type="password" class="form-control" ng-model="usuario.password"></td>
+			<td><input type="password" id="password" class="form-control" ng-model="usuario.password"></td>
 		</tr>
 		<tr>
 			<td>Correo: </td>
-			<td><input type="email" class="form-control" ng-model="usuario.correo"></td>
+			<td><input type="email" id="correo" placeholder="ejemplo@email.com..." class="form-control" required="required" ng-model="usuario.correo"></td>
 		</tr>
 		<tr>
 		

@@ -3,6 +3,7 @@ package cl.keanzato.app.core;
 public class Cuenta {
 
 	private int idcuenta;
+	private String idusuario;
 	private int monto;
 	private String proviene;
 	private String fechaingreso;
@@ -11,6 +12,18 @@ public class Cuenta {
 	 */
 	public int getIdcuenta() {
 		return idcuenta;
+	}
+	/**
+	 * @return the idusuario
+	 */
+	public String getIdusuario() {
+		return idusuario;
+	}
+	/**
+	 * @param idusuario the idusuario to set
+	 */
+	public void setIdusuario(String idusuario) {
+		this.idusuario = idusuario;
 	}
 	/**
 	 * @param idcuenta the idcuenta to set
@@ -60,9 +73,10 @@ public class Cuenta {
 	 * @param proviene
 	 * @param fechaingreso
 	 */
-	public Cuenta(int idcuenta, int monto, String proviene, String fechaingreso) {
+	public Cuenta(int idcuenta,String idusuario,int monto, String proviene, String fechaingreso) {
 		super();
 		this.idcuenta = idcuenta;
+		this.idusuario = idusuario;
 		this.monto = monto;
 		this.proviene = proviene;
 		this.fechaingreso = fechaingreso;

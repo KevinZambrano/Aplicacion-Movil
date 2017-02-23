@@ -7,14 +7,14 @@
         <th>Fecha de ingreso</th>
         <th>Opciones</th>
         </thead>
-        <tr ng-repeat="cuenta in cuentas">
-            <td>${{cuenta.monto}}</td>
-            <td>{{cuenta.proviene}}</td>
-            <td>{{cuenta.fechaingreso}}</td>
-            <td><button class="btn btn-danger" ng-click="eliminar(cuenta)">Eliminar</button></td>
+       <tr ng-repeat="cuenta in cuentas">
+            <td ng-show="cuenta.idusuario===usuario.idusuario">${{cuenta.monto}}</td>
+            <td ng-show="cuenta.idusuario===usuario.idusuario">{{cuenta.proviene}}</td>
+            <td ng-show="cuenta.idusuario===usuario.idusuario">{{cuenta.fechaingreso}}</td>
+            <td ng-show="cuenta.idusuario===usuario.idusuario"><button class="btn btn-danger" ng-show="cuenta.idusuario===usuario.idusuario"  ng-click="eliminar(cuenta)">Eliminar</button></td>
         </tr>
     </table>
-    <h3>Monto total: ${{total}}</h3>
+    <h3 >Monto total: ${{total}}</h3>
     <script type="text/javascript">
        		var CONSTANTS = {
        				

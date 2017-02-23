@@ -14,15 +14,16 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
 public class CuentaDao implements InterfaceCuenta {
 
+	
     public List<Cuenta> lista() throws SQLException, ClassNotFoundException {
         try {
             ConexionBD conn = ConexionBD.getInstancia();
             PreparedStatement consulta = conn.getConnection().prepareStatement("select * from cuenta");
             ResultSet rst = consulta.executeQuery();
             List<Cuenta> cuentas = new ArrayList<Cuenta>();
-
             while (rst.next()) {
                 cuentas.add(parser(rst));
             }
@@ -37,12 +38,13 @@ public class CuentaDao implements InterfaceCuenta {
     public boolean agregar(Cuenta cuenta) throws SQLException, ClassNotFoundException {
         try {
             ConexionBD conn = ConexionBD.getInstancia();
-            PreparedStatement consulta = conn.getConnection().prepareStatement("insert into cuenta values(null,?,?,?)");
-            consulta.setInt(1, cuenta.getMonto());
-            consulta.setString(2, cuenta.getProviene());
+            PreparedStatement consulta = conn.getConnection().prepareStatement("insert into cuenta values(null,?,?,?,?)");
+            consulta.setString(1, cuenta.getIdusuario());
+            consulta.setInt(2, cuenta.getMonto());
+            consulta.setString(3, cuenta.getProviene());
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
             cuenta.setFechaingreso(dateFormat.format(new Date()));
-            consulta.setString(3, cuenta.getFechaingreso());
+            consulta.setString(4, cuenta.getFechaingreso());
             consulta.execute();
             return true;
         } catch (SQLException ex) {
@@ -58,6 +60,7 @@ public class CuentaDao implements InterfaceCuenta {
         Cuenta cuenta = new Cuenta();
 
         cuenta.setIdcuenta(rst.getInt("idcuenta"));
+        cuenta.setIdusuario(rst.getString("idusuario"));
         cuenta.setMonto(rst.getInt("monto"));
         cuenta.setProviene(rst.getString("proviene"));
         cuenta.setFechaingreso(rst.getString("fechaingreso"));
@@ -66,11 +69,12 @@ public class CuentaDao implements InterfaceCuenta {
     }
 
   
-    public int totalFinanzas() {
+    public int totalFinanzas(String idusuario) {
         int suma = 0;
         try {
 
             for (Cuenta cuenta : lista()) {
+            	if(cuenta.getIdusuario().equals(idusuario))
                 suma = suma + cuenta.getMonto();
             }
             return suma;
@@ -80,6 +84,9 @@ public class CuentaDao implements InterfaceCuenta {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(CuentaDao.class.getName()).log(Level.SEVERE, null, ex);
             return 0;
+        }catch(Exception ex){
+        	System.out.println(ex.getMessage());
+        	return 0;
         }
     }
 

@@ -22,6 +22,8 @@ app.controller('RegistrarController', function($scope, $http, $location) {
 		request2.error(function(response){
 			alert("No se agrego correctamente.")
 		});
-	};
+	}; 
+	
+	$scope.rutre = true;
 
 });

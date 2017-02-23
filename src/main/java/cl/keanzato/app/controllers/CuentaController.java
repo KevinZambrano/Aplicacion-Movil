@@ -7,6 +7,8 @@ package cl.keanzato.app.controllers;
 
 import cl.keanzato.app.core.Cuenta;
 import cl.keanzato.app.dao.CuentaDao;
+import cl.keanzato.app.negocio.CuentaNegocio;
+
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -35,8 +37,8 @@ public class CuentaController {
     @Path("/")
     public List<Cuenta> listaCuentas() throws ClassNotFoundException {
         try {
-            CuentaDao cuentaDao = new CuentaDao();
-            return cuentaDao.lista();
+            CuentaNegocio cuenta = new CuentaNegocio();
+            return cuenta.cuentas();
         } catch (SQLException ex) {
             Logger.getLogger(CuentaController.class.getName()).log(Level.SEVERE, null, ex);
             throw new WebApplicationException(Response.Status.INTERNAL_SERVER_ERROR);
@@ -46,11 +48,11 @@ public class CuentaController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    @Path("/ingresos")
-    public int totalFinanzas() {
+    @Path("/ingresos/{idusuario}")
+    public int totalFinanzas(@PathParam("idusuario") String idusuario) {
         try {
             CuentaDao cuentaDao = new CuentaDao();
-            return cuentaDao.totalFinanzas();
+            return cuentaDao.totalFinanzas(idusuario);
         } catch (Exception ex) {
             Logger.getLogger(CuentaController.class.getName()).log(Level.SEVERE, null, ex);
             throw new WebApplicationException(Response.Status.INTERNAL_SERVER_ERROR);

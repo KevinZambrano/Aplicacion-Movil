@@ -11,5 +11,7 @@ public interface InterfaceUsuario {
 	
 	public List<Usuario> lista() throws SQLException, ClassNotFoundException;
 	
-	public boolean login(String usuario, String password);
+	public boolean login(Usuario usuario);
+	
+	public Usuario getUsuario(String idusuario) throws SQLException, ClassNotFoundException;
 }

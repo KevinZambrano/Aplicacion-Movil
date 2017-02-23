@@ -7,10 +7,10 @@ import java.sql.SQLException;
 public interface InterfaceCuenta {
 
 	public List<Cuenta> lista() throws SQLException, ClassNotFoundException;
-	
+
 	public boolean agregar(Cuenta cuenta) throws SQLException, ClassNotFoundException;
-        
-        public boolean eliminar(int idcuenta) throws SQLException, ClassNotFoundException;
-        
-        public int totalFinanzas();
+
+	public boolean eliminar(int idcuenta) throws SQLException, ClassNotFoundException;
+
+	public int totalFinanzas(String idusuario);
 }

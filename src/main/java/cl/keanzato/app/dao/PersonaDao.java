@@ -48,6 +48,25 @@ public class PersonaDao implements InterfacePersona {
 		}
 	}
 
+	public Persona getPersona(int rut)throws SQLException, ClassNotFoundException {
+		try{
+			ConexionBD conn = ConexionBD.getInstancia();
+			PreparedStatement consulta = conn.getConnection().prepareStatement("select * from persona where rut=?");
+			consulta.setInt(1, rut);
+			ResultSet rst= consulta.executeQuery();
+			Persona persona = new Persona();
+			while(rst.next()){
+				persona = parser(rst);
+			}
+			
+			return persona;
+			
+		}catch(Exception ex){
+			System.out.println(ex.getMessage());
+			return null;
+		}
+	}
+	
 	private Persona parser(ResultSet rst) throws SQLException {
 		Persona persona = new Persona();
 

@@ -67,6 +67,12 @@ public class Usuario {
 		this.password = password;
 		this.correo = correo;
 	}
+	
+	public Usuario(String idusuario, String password) {
+		super();
+		this.idusuario = idusuario;
+		this.password = password;
+	}
 	/**
 	 * 
 	 */

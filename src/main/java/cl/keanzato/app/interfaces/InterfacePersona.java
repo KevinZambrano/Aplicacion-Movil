@@ -10,4 +10,6 @@ public interface InterfacePersona {
 	public List<Persona> lista() throws SQLException, ClassNotFoundException;
 	
 	public void agregar(Persona persona) throws SQLException, ClassNotFoundException;
+	
+	public Persona getPersona(int rut) throws SQLException, ClassNotFoundException;
 }
