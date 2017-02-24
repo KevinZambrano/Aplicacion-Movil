@@ -16,7 +16,7 @@ app.config([ '$routeProvider', function($routeProvider) {
 	});
 
 	$routeProvider.when('/agregar/ingresos', {
-		templateUrl : "/SpringAngular/mobile/agregarIngresos.html",
+		templateUrl : "/SpringAngular/mobile/gregarIngresos.html",
 		controller : "AgregarIngresosController"
 	});
 

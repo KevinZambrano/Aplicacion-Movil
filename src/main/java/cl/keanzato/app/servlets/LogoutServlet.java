@@ -28,17 +28,12 @@ public class LogoutServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		try {
-			if(request.getSession()!=null){
-				request.getSession().invalidate();
-				request.getSession().removeAttribute("USUARIO");
-				response.sendRedirect("/SpringAngular/index.html");
-			}
-			
-		} catch (Exception ex) {
-			System.out.println(ex.getMessage());
+
+		if (request.getSession() != null) {
+			request.getSession().invalidate();
 			response.sendRedirect("/SpringAngular/index.html");
 		}
+
 	}
 
 }
